@@ -94,11 +94,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun validationDone(): Boolean {
         var statusOfValidation = true;
-        val list = mutableListOf(etNumBiggerThan25,description)
+        val list = mutableListOf(etNumBiggerThan25,description, releaseDate)
         Log.d("validating list", " list is " + list)
         Log.d("length of list", "length/size = " + list.size)
         for (i in 0..list.size-1) {
             System.out.println("list i val " + i + " value = " + list[i])
+            System.out.println("text values in list : " + list[i].text)
             if (list[i].text.toString() == "") {
                 System.out.println("list[i] is empty !!! " + list[i].text)
                 statusOfValidation = false
