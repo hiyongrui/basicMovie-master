@@ -7,8 +7,7 @@ import android.view.View
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
-import com.example.tanyongrui.basicmovie.R.id.description
-import com.example.tanyongrui.basicmovie.R.id.etNumBiggerThan25
+import com.example.tanyongrui.basicmovie.R.id.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         var checkYes = ""
         //var checkYes = checkBoxViolence.isChecked()
         if (checkBoxViolence.isChecked()) {
-            checkYes = checkBoxViolence.text.toString()
+            checkYes = "\n " + checkBoxViolence.text.toString()
         }
         else{
             checkYes == ""
@@ -54,40 +53,60 @@ class MainActivity : AppCompatActivity() {
         println("hello this printlnss is working!!! ")
         //System.out.printf("hello this system println ")
         return checkYes
-
+    }
+    fun checkBoxValidation() : String {
+        var checkBoxLanguage = ""
+        if (checkBoxLanguageUsed.isChecked()) {
+            checkBoxLanguage = "\n " + checkBoxLanguageUsed.text.toString()
+        }
+        else{
+            checkBoxLanguage == ""
+        }
+        return checkBoxLanguage
     }
 
+    fun checkSuitableValidation() : Boolean {
+        var suitableIsChecked = true;
+        if (!checkBoxSuitable.isChecked()) {
+            suitableIsChecked = false;
+        }
+        return suitableIsChecked
+    }
+    fun getRadioButtonText() : String {
+        var radioButtonText: String = ""
+        var radioButtonId: Int = radioGroupLanguage.checkedRadioButtonId
+        Log.e("radio button id " , radioButtonId.toString())
+        val radio:RadioButton = findViewById(radioButtonId)
+        radioButtonText = radio.text.toString()
+
+        return radioButtonText
+    }
     fun btnValidate(v: View) {
         var statusOfValidation = validationDone()
         System.out.println("validation done fail/pass " + statusOfValidation)
         if (statusOfValidation) {
-            /*if (etNumBiggerThan25.text.toString() == "" || description.text.toString() == "") {
-            etNumBiggerThan25.setError("Field empty")
-            description.setError("field empty")
-        } */
-            //else {
-            var editTextNumber: Int = etNumBiggerThan25.text.toString().toInt()
+            //var editTextNumber: Int = etNumBiggerThan25.text.toString().toInt()
             //var checkBoxVio:String = checkBoxViolence.text.toString()
             var checkBoxVio: String = checkYesOrNo()
+            var checkBoxLanguage: String = checkBoxValidation()
+            var checkSuitable: Boolean = checkSuitableValidation()
+            var checkSuitableToast: String = ""
+            var radioButtonText = getRadioButtonText()
 
-            var checkWorking = checkYesOrNo()
-
-            if (editTextNumber <= 25) {
-                //if (checkWorking) {
-
-                etNumBiggerThan25.setError("NUMBER IS lesser or equal 25")
-                Toast.makeText(
-                    this, editTextNumber.toString() + " is the number" +
-                            "\n hello 2nd line" +
-                            "\n reasons of: " +
-                            "\n" + checkBoxVio, Toast.LENGTH_LONG
-                ).show()
-
-            } else {
-                Toast.makeText(this, "check box violence is not checked kappa= " + checkBoxVio,
-                    Toast.LENGTH_LONG).show()
+            if (checkSuitable) {
+                checkSuitableToast = "Suitable for all ages = " + checkSuitable + "\n Reason:"
             }
-            //}
+            else{
+                checkSuitableToast = "Suitable for all ages = " + checkSuitable
+            }
+            Toast.makeText(
+                    this," Title = " + etNumBiggerThan25.text +
+                        "\n Overview = " + description.text +
+                        "\n Release date = " + releaseDate.text +
+                        "\n Language = " + radioButtonText +
+                        "\n " + checkSuitableToast +
+                        checkBoxVio + checkBoxLanguage, Toast.LENGTH_LONG
+            ).show()
         }
 
     } // end of btnvalidate method

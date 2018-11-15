@@ -6,10 +6,79 @@
               tools:context=".MainActivity" android:orientation="vertical">
 
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="Title:"
             android:id="@+id/titleMovie"
     />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="text of title"
+            android:id="@+id/titleMovieText"
+            android:textSize="46px"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Overview:"
+            android:id="@+id/overview"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="text of title"
+            android:id="@+id/overviewText"
+            android:textSize="46px"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Language:"
+            android:id="@+id/language"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lagnuage used e.g. english"
+            android:id="@+id/languageText"
+            android:textSize="46px"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Release date:"
+            android:id="@+id/releaseDate"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="e.g. 03-10-2018"
+            android:id="@+id/releaseDateText"
+            android:textSize="46px"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suitable for children below 13:"
+            android:id="@+id/suitable"
+    />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="yes/no"
+            android:id="@+id/suitableAgeText"
+            android:textSize="46px"
+    />
+
 
 </LinearLayout>
