@@ -9,15 +9,22 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <!-- put the intent filter to .viewMovieActivity to see the 2nd screen
+        and .rateMovieActivity to see the 3rd screen !-->
         <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".viewMovieActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+
+        <activity android:name=".viewMovieActivity">
+
+        </activity>
+
+        <activity android:name=".rateMovieActivity">
+
         </activity>
     </application>
 

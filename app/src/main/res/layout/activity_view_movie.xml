@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="text of title"
             android:id="@+id/titleMovieText"
-            android:textSize="66px"
+            android:textSize="22dp"
     />
 
     <Space
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:text="overview text paragraph"
             android:id="@+id/overviewText"
-            android:textSize="66px"
+            android:textSize="22dp"
     />
 
     <Space
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="language used e.g. english"
             android:id="@+id/languageText"
-            android:textSize="66px"
+            android:textSize="22dp"
     />
 
     <Space
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:text="e.g. 03-10-2018"
             android:id="@+id/releaseDateText"
-            android:textSize="66px"
+            android:textSize="22dp"
     />
 
     <Space
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:text="yes/no"
             android:id="@+id/suitableAgeText"
-            android:textSize="66px"
+            android:textSize="22dp"
     />
 
 
