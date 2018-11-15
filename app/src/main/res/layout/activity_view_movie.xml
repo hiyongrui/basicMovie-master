@@ -4,6 +4,11 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               tools:context=".MainActivity" android:orientation="vertical">
+    
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/moviepicture"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -12,13 +17,21 @@
             android:id="@+id/titleMovie"
     />
 
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
+
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="text of title"
             android:id="@+id/titleMovieText"
-            android:textSize="46px"
+            android:textSize="66px"
     />
+
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -27,13 +40,21 @@
             android:id="@+id/overview"
     />
 
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
+
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="text of title"
+            android:text="overview text paragraph"
             android:id="@+id/overviewText"
-            android:textSize="46px"
+            android:textSize="66px"
     />
+
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -42,13 +63,21 @@
             android:id="@+id/language"
     />
 
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
+
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="lagnuage used e.g. english"
+            android:text="language used e.g. english"
             android:id="@+id/languageText"
-            android:textSize="46px"
+            android:textSize="66px"
     />
+
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -57,13 +86,21 @@
             android:id="@+id/releaseDate"
     />
 
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
+
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="e.g. 03-10-2018"
             android:id="@+id/releaseDateText"
-            android:textSize="46px"
+            android:textSize="66px"
     />
+
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
 
     <TextView
             android:layout_width="match_parent"
@@ -72,12 +109,16 @@
             android:id="@+id/suitable"
     />
 
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="9dp"/>
+
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="yes/no"
             android:id="@+id/suitableAgeText"
-            android:textSize="46px"
+            android:textSize="66px"
     />
 
 

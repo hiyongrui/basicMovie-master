@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
         return radioButtonText
     }
-    
+
     fun btnValidate(v: View) {
         var statusOfValidation = validationDone() //validate all fields empty/no
         System.out.println("validation done fail/pass " + statusOfValidation)

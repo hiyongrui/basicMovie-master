@@ -30,9 +30,5 @@ class viewMovieActivity : AppCompatActivity() {
         Log.e("release date", releaseDate.text.toString())
         Log.e("suitable age", suitableAgeText.text.toString())
     }
-
-
     //val changeTitle: TextView = findViewById(R.id.title) as TextView
-
-
 }
