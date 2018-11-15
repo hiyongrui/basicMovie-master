@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
                 //tvMyTextDisplay.text = "CheckBox has unchecked!!!!"
                 checkBoxViolence.setVisibility(View.GONE)
                 checkBoxLanguageUsed.setVisibility(View.GONE)
+                checkBoxViolence.isChecked = false
+                checkBoxLanguageUsed.isChecked = false
             }
         }
 
@@ -34,46 +36,54 @@ class MainActivity : AppCompatActivity() {
             rbtnButton4.setError(null)
         } */
         radioGroupLanguage.setOnCheckedChangeListener() { radioGroup: RadioGroup, i: Int ->
-            rbtnButton4.setError(null)
+            rbtnButton4.setError(null) //remove error that was set once clicked on any other radio
         }
 
     }
 
-    fun checkYesOrNo(): String {
-        var checkYes = ""
+    fun checkBoxViolenceValiation(): String {
+        var checkboxViolenceText = ""
         //var checkYes = checkBoxViolence.isChecked()
         if (checkBoxViolence.isChecked()) {
-            checkYes = "\n " + checkBoxViolence.text.toString()
+            checkboxViolenceText = "\n " + checkBoxViolence.text.toString()
         }
-        else{
-            checkYes == ""
-
-        }
-        Log.d("checkyestag","checkyes value log print is " + checkYes)
+        Log.d("checkyestag","checkyes value log print is " + checkboxViolenceText)
         println("hello this printlnss is working!!! ")
         //System.out.printf("hello this system println ")
-        return checkYes
+        return checkboxViolenceText
     }
-    fun checkBoxValidation() : String {
-        var checkBoxLanguage = ""
+    fun checkBoxLanguageValidation() : String {
+        var checkBoxLanguageText = ""
         if (checkBoxLanguageUsed.isChecked()) {
-            checkBoxLanguage = "\n " + checkBoxLanguageUsed.text.toString()
+            checkBoxLanguageText = "\n " + checkBoxLanguageUsed.text.toString()
         }
-        else{
-            checkBoxLanguage == ""
-        }
-        return checkBoxLanguage
+        return checkBoxLanguageText
     }
 
-    fun checkSuitableValidation() : Boolean {
-        var suitableIsChecked = true;
+    fun checkSuitableValidation() : String {
+        var checkSuitableToast = ""
+        var suitableIsChecked = false;
+        // practical assignment logic wrong, if not suitable for all audience,
+        // means toast should display suitable for all ages = false instead..
         if (!checkBoxSuitable.isChecked()) {
-            suitableIsChecked = false;
+            suitableIsChecked = true;
         }
-        return suitableIsChecked
+        if (!suitableIsChecked) {
+            if (!checkBoxViolence.isChecked && !checkBoxLanguageUsed.isChecked) {
+                checkSuitableToast = "Suitable for all ages = " + suitableIsChecked
+            }
+            else {
+                checkSuitableToast = "Suitable for all ages = " + suitableIsChecked + "\n Reason:"
+            }
+        }
+        else{
+            checkSuitableToast = "Suitable for all ages = " + suitableIsChecked
+        }
+
+        return checkSuitableToast
     }
     fun getRadioButtonText() : String {
-        var radioButtonText: String = ""
+        var radioButtonText = ""
         var radioButtonId: Int = radioGroupLanguage.checkedRadioButtonId
         Log.e("radio button id " , radioButtonId.toString())
         val radio:RadioButton = findViewById(radioButtonId)
@@ -81,26 +91,18 @@ class MainActivity : AppCompatActivity() {
 
         return radioButtonText
     }
+    
     fun btnValidate(v: View) {
-        var statusOfValidation = validationDone()
+        var statusOfValidation = validationDone() //validate all fields empty/no
         System.out.println("validation done fail/pass " + statusOfValidation)
         if (statusOfValidation) {
-            //var editTextNumber: Int = etNumBiggerThan25.text.toString().toInt()
-            //var checkBoxVio:String = checkBoxViolence.text.toString()
-            var checkBoxVio: String = checkYesOrNo()
-            var checkBoxLanguage: String = checkBoxValidation()
-            var checkSuitable: Boolean = checkSuitableValidation()
-            var checkSuitableToast: String = ""
+            var checkBoxVio = checkBoxViolenceValiation()
+            var checkBoxLanguage = checkBoxLanguageValidation()
+            var checkSuitableToast = checkSuitableValidation()
             var radioButtonText = getRadioButtonText()
 
-            if (checkSuitable) {
-                checkSuitableToast = "Suitable for all ages = " + checkSuitable + "\n Reason:"
-            }
-            else{
-                checkSuitableToast = "Suitable for all ages = " + checkSuitable
-            }
             Toast.makeText(
-                    this," Title = " + etNumBiggerThan25.text +
+                    this," Title = " + nameOfMovie.text +
                         "\n Overview = " + description.text +
                         "\n Release date = " + releaseDate.text +
                         "\n Language = " + radioButtonText +
@@ -113,7 +115,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun validationDone(): Boolean {
         var statusOfValidation = true;
-        val list = mutableListOf(etNumBiggerThan25,description, releaseDate)
+        val list = mutableListOf(nameOfMovie,description, releaseDate)
         Log.d("validating list", " list is " + list)
         Log.d("length of list", "length/size = " + list.size)
         for (i in 0..list.size-1) {
